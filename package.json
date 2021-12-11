@@ -1,72 +1,73 @@
 {
-   "name": "cppscreatorclient",
-   "version": "1.0.1",
-   "description": "CPPSCreator Client",
-   "productName": "CPPSCreator",
-   "main": "main.js",
-   "scripts": {
-      "start": "electron ."
-   },
-   "repository": "https://github.com/random-sb/cppscreator-client",
-   "keywords": [
-      "cppscreator",
-      "cpps",
-      "club penguin",
-      "club penguin private server"
-   ],
-   "build": {
-      "publish": [
-         {
-            "provider": "github",
-            "owner": "random-sb",
-            "repo": "cppscreator-client"
-         }
-      ],
-      "appId": "net.cppscreator",
-      "mac": {
-         "asar": false,
-         "category": "public.app-category.games"
-      },
-      "linux": {
-         "asar": false,
-         "target": [
-            {
-               "target": "deb",
-               "arch": [
-                  "x64",
-                  "ia32"
-               ]
-            },
-            {
-               "target": "AppImage",
-               "arch": [
-                  "x64",
-                  "ia32"
-               ]
-            }
-         ]
-      },
-      "win": {
-         "asar": false,
-         "target": [
-            {
-               "target": "nsis",
-               "arch": [
-                  "x64",
-                  "ia32"
-               ]
-            }
-         ]
+  "name": "clubicicleclient",
+  "version": "0.2.0-rc.3",
+  "description": "Club Icicle Client",
+  "productName": "Club Icicle",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/PokeSquidDev/Club-Icicle-Client",
+  "keywords": [
+    "cppscreator",
+    "cpps",
+    "club penguin",
+    "club penguin private server",
+    "club icicle"
+  ],
+  "build": {
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "PokeSquidDev",
+        "repo": "Club-Icicle-Client"
       }
-   },
-   "author": "CPPSCreator <rocket@rockets.chat> (https://cppscreator.xyz)",
-   "license": "CC0-1.0",
-   "devDependencies": {
-      "electron": "^8.5.5",
-      "electron-builder": "^22.9.1"
-   },
-   "dependencies": {
-      "electron-updater": "^4.3.2",
-      "discord-rpc": "^3.1.4"
-   }
+    ],
+    "appId": "net.cppscreator.clubicicle",
+    "mac": {
+      "asar": false,
+      "category": "public.app-category.games"
+    },
+    "linux": {
+      "asar": false,
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "asar": false,
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
+  "author": "Club Icicle (https://clubicicle.000webhostapp.com/)",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^8.5.5",
+    "electron-builder": "^22.9.1",
+    "electron-nightly": "^18.0.0-nightly.20211119"
+  },
+  "dependencies": {
+    "electron-updater": "^4.3.2"
+  }
 }
