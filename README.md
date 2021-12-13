@@ -1,5 +1,6 @@
 # Club Icicle Client
 README in development.
+Cheers Rocket and Allinol for the base of the client!
 ## Current Versions
 0.2.2 (Stable) | 0.2.2 (Beta)
 ## The Game
