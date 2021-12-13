@@ -9,7 +9,10 @@ const {
     shell
 } = require('electron')
 
-let stableRelease = false;
+const DiscordRPC = require('discord-rpc');
+let rpc
+
+let stableRelease = true;
 
 const path = require('path');
 
@@ -58,8 +61,9 @@ function createWindow() {
     height: 840
     });
     makeMenu();
+    //activateRPC();
 	
-    win.loadURL('https://clubicicle.000webhostapp.com');
+    toDashboard();
     Menu.setApplicationMenu(fsmenu);
 	
     win.on('closed', () => {
@@ -97,6 +101,21 @@ function createPrompt() {
 const aboutMessage = `Club Icicle v${app.getVersion()}
 Created by Squid Ska with most code provided by Allinol for use with Coastal Freeze as well as Random for use with CPPSCreator.`;
 
+function activateRPC() {
+    const clientId = '';
+    DiscordRPC.register(clientId);
+    rpc = new DiscordRPC.Client({ transport: 'ipc' });
+    const startTimestamp = new Date();
+    rpc.on('ready', () => {
+        rpc.setActivity({
+            details: `Playing Club Icicle`,
+            startTimestamp,
+            largeImageKey: ''
+        });
+    });
+    rpc.login({ clientId }).catch();
+}
+
 function makeMenu() { // credits to random
     fsmenu = new Menu();
     if (process.platform == 'darwin') {
@@ -112,7 +131,22 @@ function makeMenu() { // credits to random
                             message: aboutMessage
                         });
                     }
+            },
+                {
+                label: 'Return to Dashboard',
+                click: () => {
+                toDashboard();
+                }
                 },
+                /*
+                {
+                    label: 'Experiments',
+                    click: () => {
+                        clearCache();
+                        win.loadURL('https://clubicicle.000webhostapp.com/experiments/index.html')
+                    }
+                },
+                */
                 {
                     label: 'Fullscreen (Toggle)',
                     accelerator: 'CmdOrCtrl+F',
@@ -121,6 +155,7 @@ function makeMenu() { // credits to random
                         win.webContents.send('fullscreen', win.isFullScreen());
                     }
                 },
+
                 {
                     label: 'Mute Audio (Toggle)',
                     click: () => {
@@ -128,6 +163,7 @@ function makeMenu() { // credits to random
                         win.webContents.send('muted', win.webContents.audioMuted);
                     }
                 },
+
                 {
                     label: 'Clear Cache',
                     click: () => {
@@ -146,6 +182,19 @@ function makeMenu() { // credits to random
                     title: "About Club Icicle",
                     message: aboutMessage
                 });
+            }
+        }));
+        fsmenu.append(new MenuItem({
+            label: 'Return to Dashboard',
+            click: () => {
+                toDashboard();
+            }
+        }));
+        fsmenu.append(new MenuItem({
+            label: 'Experiments',
+            click: () => {
+                clearCache();
+                win.loadURL('https://clubicicle.000webhostapp.com/experiments/index.html');
             }
         }));
         fsmenu.append(new MenuItem({
@@ -170,6 +219,11 @@ function makeMenu() { // credits to random
             }
         }));
     }
+}
+
+function toDashboard() {
+    clearCache();
+    win.loadURL('https://clubicicle.000webhostapp.com/client/dashboard.html');
 }
 
 function clearCache() {
