@@ -190,6 +190,7 @@ function makeMenu() { // credits to random
                 toDashboard();
             }
         }));
+        /*
         fsmenu.append(new MenuItem({
             label: 'Experiments',
             click: () => {
@@ -197,6 +198,7 @@ function makeMenu() { // credits to random
                 win.loadURL('https://clubicicle.000webhostapp.com/experiments/index.html');
             }
         }));
+        */
         fsmenu.append(new MenuItem({
             label: 'Fullscreen (Toggle)',
             accelerator: 'CmdOrCtrl+F',
