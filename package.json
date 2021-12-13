@@ -1,6 +1,6 @@
 {
   "name": "clubicicleclient",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Club Icicle Client",
   "productName": "Club Icicle",
   "main": "main.js",
@@ -20,7 +20,7 @@
       {
         "provider": "github",
         "owner": "PokeSquidDev",
-        "repo": "club-icicle-client"
+        "repo": "Club-Icicle-Client"
       }
     ],
     "appId": "net.cppscreator.clubicicle",
