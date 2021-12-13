@@ -1,13 +1,13 @@
 {
   "name": "clubicicleclient",
-  "version": "0.2.0-rc.3",
+  "version": "0.2.1",
   "description": "Club Icicle Client",
   "productName": "Club Icicle",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/PokeSquidDev/Club-Icicle-Client",
+  "repository": "https://github.com/PokeSquidDev/club-icicle-client",
   "keywords": [
     "cppscreator",
     "cpps",
@@ -20,7 +20,7 @@
       {
         "provider": "github",
         "owner": "PokeSquidDev",
-        "repo": "Club-Icicle-Client"
+        "repo": "club-icicle-client"
       }
     ],
     "appId": "net.cppscreator.clubicicle",
