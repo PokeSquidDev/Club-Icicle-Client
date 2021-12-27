@@ -21,9 +21,6 @@ let pluginName
 switch (process.platform) {
 case 'win32':
     switch (process.arch) {
-    case 'ia32':
-        pluginName = 'flash/pepflashplayer32_32_0_0_303.dll'
-        break
     case 'x32':
         pluginName = 'flash/pepflashplayer32_32_0_0_303.dll'
         break
@@ -99,7 +96,10 @@ function createPrompt() {
 // start of menubar part
 
 const aboutMessage = `Club Icicle v${app.getVersion()}
-Created by Squid Ska with most code provided by Allinol for use with Coastal Freeze as well as Random for use with CPPSCreator.`;
+Created by Squid Ska with most code provided by Allinol for use with Coastal Freeze as well as Random for use with CPPSCreator. \nThis is a beta release, which is used as a way to test unstable features. Expect to encounter various bugs.`;
+
+const experimentsError = `You're using a stable release!
+Experiments are designed for users of unstable releases, as most content within this page is (in future at minimum) designed to interact with the client in an unstable manner.`;
 
 function activateRPC() {
     const clientId = '';
@@ -138,15 +138,24 @@ function makeMenu() { // credits to random
                 toDashboard();
                 }
                 },
-                /*
+                
                 {
                     label: 'Experiments',
                     click: () => {
                         clearCache();
-                        win.loadURL('https://clubicicle.000webhostapp.com/experiments/index.html')
+                        if (stableRelease) {
+                            dialog.showMessageBox({
+                                type: "error",
+                                buttons: ["Close"],
+                                title: "Error",
+                                message: experimentsError
+                            });
+                        } else {
+                            win.loadURL('https://clubicicle.000webhostapp.com/experiments/index.html')
+                        }
                     }
                 },
-                */
+                
                 {
                     label: 'Fullscreen (Toggle)',
                     accelerator: 'CmdOrCtrl+F',
@@ -190,15 +199,24 @@ function makeMenu() { // credits to random
                 toDashboard();
             }
         }));
-        /*
+        
         fsmenu.append(new MenuItem({
             label: 'Experiments',
             click: () => {
                 clearCache();
-                win.loadURL('https://clubicicle.000webhostapp.com/experiments/index.html');
+                if (stableRelease) {
+                    dialog.showMessageBox({
+                        type: "error",
+                        buttons: ["Close"],
+                        title: "Error",
+                        message: experimentsError
+                    });
+                } else {
+                    win.loadURL('https://clubicicle.000webhostapp.com/experiments/index.html');
+                }
             }
         }));
-        */
+        
         fsmenu.append(new MenuItem({
             label: 'Fullscreen (Toggle)',
             accelerator: 'CmdOrCtrl+F',
