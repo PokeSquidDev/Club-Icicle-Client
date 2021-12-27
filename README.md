@@ -2,7 +2,7 @@
 README in development.
 Cheers Rocket and Allinol for the base of the client!
 ## Current Versions
-0.2.2 (Stable) | 0.2.2 (Beta)
+0.2.2 (Stable) | 1.0.0.1 (Beta, in development)
 ## The Game
 Club Icicle is a CPPS (Club Penguin Private Server) dedicated to having a fresh feel, while still being Nostalgic to those who played in the earlier days. Want to be a pizza chef? Check out the Pizza Parlor in the plaza! Want to be a Ninja? The dojo is your place to go! Enjoy helping others? Get experienced and visit the Tour Booth in the Ski Village! The possibilities are practically endless!
 ## The Music
