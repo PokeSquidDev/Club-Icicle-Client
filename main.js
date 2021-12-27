@@ -12,7 +12,7 @@ const {
 const DiscordRPC = require('discord-rpc');
 let rpc
 
-let stableRelease = true;
+let stableRelease = false;
 
 const path = require('path');
 
