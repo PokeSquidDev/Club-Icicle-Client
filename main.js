@@ -12,8 +12,6 @@ const {
 const DiscordRPC = require('discord-rpc');
 let rpc
 
-let stableRelease = false;
-
 const path = require('path');
 
 
@@ -140,23 +138,6 @@ function makeMenu() { // credits to random
                 },
                 
                 {
-                    label: 'Experiments',
-                    click: () => {
-                        clearCache();
-                        if (stableRelease) {
-                            dialog.showMessageBox({
-                                type: "error",
-                                buttons: ["Close"],
-                                title: "Error",
-                                message: experimentsError
-                            });
-                        } else {
-                            win.loadURL('https://clubicicle.000webhostapp.com/experiments/index.html')
-                        }
-                    }
-                },
-                
-                {
                     label: 'Fullscreen (Toggle)',
                     accelerator: 'CmdOrCtrl+F',
                     click: () => {
@@ -197,23 +178,6 @@ function makeMenu() { // credits to random
             label: 'Return to Dashboard',
             click: () => {
                 toDashboard();
-            }
-        }));
-        
-        fsmenu.append(new MenuItem({
-            label: 'Experiments',
-            click: () => {
-                clearCache();
-                if (stableRelease) {
-                    dialog.showMessageBox({
-                        type: "error",
-                        buttons: ["Close"],
-                        title: "Error",
-                        message: experimentsError
-                    });
-                } else {
-                    win.loadURL('https://clubicicle.000webhostapp.com/experiments/index.html');
-                }
             }
         }));
         
@@ -263,6 +227,5 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   if (win === null) {
 	  createWindow();
-	  const startTimestamp = new Date();
   }
 });
